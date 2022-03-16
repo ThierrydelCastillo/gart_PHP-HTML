@@ -1,3 +1,4 @@
+<?php require_once('bootstrap.php') ?>
 <?php require_once('functions.php') ?>
 
 <!doctype html>
