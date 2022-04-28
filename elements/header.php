@@ -1,5 +1,7 @@
-<?php require_once('bootstrap.php') ?>
-<?php require_once('functions.php') ?>
+<?php
+  require_once(dirname(__DIR__) . DIRECTORY_SEPARATOR . 'bootstrap.php');
+  require_once('functions.php');
+?>
 
 <!doctype html>
 <html lang="en">

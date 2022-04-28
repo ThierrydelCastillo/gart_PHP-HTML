@@ -1,6 +1,5 @@
 <?php 
     require_once('config.php');
-    require_once('bootstrap.php');
     require_once('functions.php');
     $title = "Nous contacter";
     $nav = "contact";
@@ -15,7 +14,7 @@
     $color = $ouvert ? 'green' : 'red';
     // $color = 'green';
     // if (!$ouvert) { $color = "red"; }
-    require('header.php');
+    require('elements' . DIRECTORY_SEPARATOR. 'header.php');
 ?>
 
 <div class="row">
@@ -59,4 +58,4 @@
     </div>
 </div>
 
-<?php require('footer.php') ?>
+<?php require('elements' . DIRECTORY_SEPARATOR . 'footer.php') ?>

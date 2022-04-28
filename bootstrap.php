@@ -8,7 +8,7 @@ function dd($variable) {
 
 function ddc($variable) {
     $variable = json_encode($variable);
-    var_dump($variable);
+    ddc($variable);
 
     echo "<script lang='javasript'>";
     echo "var variable = $variable\n";

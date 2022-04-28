@@ -1,24 +1,20 @@
 <?php
-
-use phpDocumentor\Reflection\Types\Boolean;
-
 function nav_item (string $lien, string $titre, string $linkClass = ''): string 
 {
-    $classe = "nav-item";
+    $classe = 'nav-item';
     if ($_SERVER['SCRIPT_NAME'] === $lien) {
         $classe .= ' active';
     }
-    /* Utilisation de Heredoc (<<< puis un identifiant) pour un code html plus clair */
     return <<<HTML
     <li class="$classe">
         <a class="$linkClass" href="$lien">$titre</a>
     </li>
-HTML; // Heredoc: ATENTION à n'avoir aucun caractère (espace, tab, etc...) avant l'identifiant 
+HTML;
 }
 
 function nav_menu (string $linkClass = ''): string
 {
-    return
+    return 
         nav_item('/index.php', 'Accueil', $linkClass) .
         nav_item('/menu.php', 'Menu', $linkClass) .
         nav_item('/contact.php', 'Contact', $linkClass);
@@ -30,10 +26,9 @@ function checkbox (string $name, string $value, array $data): string
     if (isset($data[$name]) && in_array($value, $data[$name])) {
         $attributes .= 'checked';
     }
-    
-    return <<<HTMl
+    return <<<HTML
     <input type="checkbox" name="{$name}[]" value="$value" $attributes>
-HTMl; 
+HTML;
 }
 
 function radio (string $name, string $value, array $data): string
@@ -42,37 +37,27 @@ function radio (string $name, string $value, array $data): string
     if (isset($data[$name]) && $value === $data[$name]) {
         $attributes .= 'checked';
     }
-    
-    return <<<HTMl
+    return <<<HTML
     <input type="radio" name="{$name}" value="$value" $attributes>
-HTMl; 
+HTML;
 }
 
-function select (string $name, $value, array $options): string
-{
+function select (string $name, $value, array $options): string {
     $html_options = [];
     foreach ($options as $k => $option) {
         $attributes = $k == $value ? ' selected' : '';
         $html_options[] = "<option value='$k' $attributes>$option</option>";
     }
-
-    return "<select class='form-control' name='$name'>" . implode($html_options) . "</select>";
+    return "<select class='form-control' name='$name'>" . implode($html_options) . '</select>';
 }
 
-function inputCheckbox (bool $type, string $name, array $options): string
-{
-    $type ? $type = "checkbox" : $type = "radio";
-    $html = '<div class="form-group">';
-    foreach ($options as $option) {
-        $html .= '<input type="'. $type . '" name="' . $name . '[]" value="'. $option .'"> ' . $option .'<br>';
-    }
-    $html .= '</div>';
-
-    return $html;
+function dump ($variable) {
+    echo '<pre>';
+    var_dump($variable);
+    echo '</pre>';
 }
 
-function creneaux_html(array $creneaux)
-{
+function creneaux_html (array $creneaux) {
     if (empty($creneaux)) {
         return 'Fermé';
     }
@@ -83,7 +68,7 @@ function creneaux_html(array $creneaux)
     return 'Ouvert ' . implode(' et ', $phrases);
 }
 
-function in_creneaux (int $heure, array $creneaux): Bool
+function in_creneaux (int $heure, array $creneaux): bool
 {
     foreach ($creneaux as $creneau) {
         $debut = $creneau[0];
@@ -94,4 +79,3 @@ function in_creneaux (int $heure, array $creneaux): Bool
     }
     return false;
 }
-?>
