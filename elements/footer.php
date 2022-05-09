@@ -3,7 +3,14 @@
 <footer>
     <hr>
     <div class="row">
-        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <?php
+            require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'functions' . DIRECTORY_SEPARATOR . 'compteur.php';
+            ajouter_vue();
+            $vue = nombre_vues();
+            ?>
+            Il y a <?= $vue ?> visite<?php if ($vue > 1):?>s<?php endif ?> sur le site.
+        </div>
         <div class="col-md-4">
             <form action="newsletter.php" method="post" class="form-inline">
                 <div class="form-group">
