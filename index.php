@@ -1,4 +1,11 @@
 <?php 
+  session_start();
+  $_SESSION['user'] =[
+    "username" => 'John',
+    "password" => '0000'
+  ];
+  unset($_SESSION['role']);
+
   $title = "Page d'accueil";
   $nav = "index";
   require('elements' . DIRECTORY_SEPARATOR . 'header.php');
@@ -10,3 +17,8 @@
   </div>
 
 <?php require('elements' . DIRECTORY_SEPARATOR . 'footer.php') ?>
+
+<?php
+  // FONCTIONS
+  // session_start — Démarre une nouvelle session ou reprend une session existante
+  // unset — Détruit une variable

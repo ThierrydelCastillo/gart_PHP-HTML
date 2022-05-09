@@ -1,4 +1,5 @@
 <?php 
+    session_start();
     require_once('config.php');
     require_once('functions.php');
     $title = "Nous contacter";
@@ -19,6 +20,8 @@
 
 <div class="row">
     <div class="col-md-8">
+        <h2>Debug</h2>
+        <?= dd($_SESSION) ?>
         <h2>Nous contacter</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptate aspernatur perferendis ipsum porro, architecto magni dicta, voluptatibus aliquam nam et molestias. Natus rerum maxime, cum error eaque sint quod!</p>
     </div>
