@@ -1,5 +1,7 @@
 <?php
-    require 'functions' . DIRECTORY_SEPARATOR . 'compteur.php';
+    require_once 'functions' . DIRECTORY_SEPARATOR . 'auth.php';
+    forcer_utilisateur_connecte();
+    require_once 'functions' . DIRECTORY_SEPARATOR . 'compteur.php';
     
     $annee = (int)date('Y');
     $annee_selection = empty($_GET['annee']) ? null : (int)$_GET['annee'];
@@ -25,7 +27,7 @@
         '11' => 'Novembre',
         '12' => 'Décembre'
     ];
-    require 'elements' . DIRECTORY_SEPARATOR. 'header.php'; 
+    require_once 'elements' . DIRECTORY_SEPARATOR. 'header.php'; 
 ?>
 
 <div class="row">
@@ -70,7 +72,7 @@
                     <?php endforeach ?>
                 </tbody>
             </table>
-        <?php endif ?>git a
+        <?php endif ?>
     </div>
 </div>
 

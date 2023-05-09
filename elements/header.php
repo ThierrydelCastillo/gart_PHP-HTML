@@ -1,6 +1,10 @@
-<?php
+<?php 
+  if(session_status() === PHP_SESSION_NONE) {
+        session_start();
+  }
   require_once(dirname(__DIR__) . DIRECTORY_SEPARATOR . 'bootstrap.php');
   require_once('functions.php');
+  require_once(dirname(__DIR__) . DIRECTORY_SEPARATOR . 'functions' . DIRECTORY_SEPARATOR . 'auth.php');
 ?>
 
 <!doctype html>
@@ -74,6 +78,13 @@
       <li class="nav-item">
         <a class="nav-link disabled">Disabled</a>
       </li>
+    </ul>
+    <ul class="navbar-nav">
+      <?php if(est_connecte()): ?>
+        <li class="nav-item nav-link"><a href="/logout.php">Se déconnecter</a></li>
+      <?php else: ?>
+        <li class="nav-item nav-link"><a href="/login.php">Se connecter</a></li>
+      <?php endif ?>
     </ul>
   </div>
 </nav>
