@@ -1,10 +1,4 @@
 <?php
-require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Creneau.php';
-$creneau = new Creneau(14, 19);
-$creneau->debut = 9;
-$creneau->fin = 12;
-$creneau2 = new Creneau(9, 12);
-var_dump(
-    $creneau->intersect($creneau2)
-);
-echo $creneau->toHTML();
+require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Form.php';
+echo Form::$class . PHP_EOL; // Appel d'une propriété static
+echo Form::checkbox('demo', 'Demo'); // appel d'une méthode static
