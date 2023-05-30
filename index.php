@@ -1,8 +1,18 @@
 <?php
+
+use Grafikart\Guestbook\{
+    GuestBook,
+    Message
+};
+
+use Grafikart\Contact\Message as ContactMessage;
 require_once 'class/Message.php';
 require_once 'class/GuestBook.php';
+require_once 'class/contact/Message.php';
+
 $errors = null;
 $success = false;
+
 $guestbook = new GuestBook(__DIR__ . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'messages');
 if(isset($_POST['username'], $_POST['message'])){
     $message = new Message($_POST['username'], $_POST['message']);

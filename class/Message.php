@@ -1,4 +1,9 @@
 <?php
+namespace Grafikart\Guestbook;
+
+use \DateTime;
+use \DateTimeZone;
+
 class Message {
 
     const LIMIT_USERNAME = 3;

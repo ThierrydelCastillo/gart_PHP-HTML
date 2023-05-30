@@ -1,4 +1,6 @@
 <?php
+namespace Grafikart\Guestbook;
+
 require_once 'Message.php';
 
 class GuestBook
