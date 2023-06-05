@@ -11,5 +11,10 @@
             "email": "test@google.fr"
         }
     ],
-    "require": {}
+    "require": {
+        "erusev/parsedown": "^1.7"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^4.2"
+    }
 }

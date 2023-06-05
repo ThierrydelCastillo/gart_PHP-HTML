@@ -22,4 +22,11 @@ class Post {
     {
         return substr($this->content, 0, 150);
     }
+
+    public function getBody(): string
+    {
+        $parsedown = new \Parsedown();
+        $parsedown->setSafeMode(true);
+        return $parsedown->text($this->content);
+    }
 }
