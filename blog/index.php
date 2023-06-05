@@ -1,5 +1,8 @@
 <?php
-require_once '../class/Post.php';
+
+use App\Post;
+
+require_once '../vendor/autoload.php';
 
 $pdo = new PDO('sqlite:../data.db', null, null, [ 
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, // array de parametres
@@ -19,7 +22,7 @@ try {
         header('Location: /blog/edit.php?id=' . $pdo->lastInsertId());
     }
     $query = $pdo->query('SELECT * FROM posts');
-    $posts = $query->fetchAll(PDO::FETCH_CLASS, 'Post');
+    $posts = $query->fetchAll(PDO::FETCH_CLASS, Post::class);
 } catch (PDOException $e) {
     $error = $e->getMessage();
 }
@@ -51,3 +54,4 @@ require '../elements/header.php' ?>
 </div>
 
 <?php require '../elements/footer.php' ?>
+use App\Post;

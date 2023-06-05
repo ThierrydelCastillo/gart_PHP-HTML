@@ -1,14 +1,15 @@
 <?php
 
-use Grafikart\Guestbook\{
-    GuestBook,
-    Message
-};
+require 'vendor/autoload.php';
+// use App\Guestbook\{
+//     GuestBook,
+//     Message
+// };
+use App\Guestbook\GuestBook;
+use App\Guestbook\Message;
 
-use Grafikart\Contact\Message as ContactMessage;
-require_once 'class/Message.php';
-require_once 'class/GuestBook.php';
-require_once 'class/contact/Message.php';
+// require_once 'class/Message.php';
+// require_once 'class/GuestBook.php';
 
 $errors = null;
 $success = false;

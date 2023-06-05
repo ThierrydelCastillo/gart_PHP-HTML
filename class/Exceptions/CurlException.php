@@ -1,5 +1,7 @@
 <?php
-class CurlException extends Exception {
+namespace App\Exceptions;
+
+class CurlException extends \Exception {
     
     public function __construct($curl)
     {

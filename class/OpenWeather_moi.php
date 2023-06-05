@@ -1,4 +1,5 @@
 <?php
+
 class OpenWeather {
 
     public $keyAPI;

@@ -1,5 +1,5 @@
 <?php
-namespace Grafikart\Guestbook;
+namespace App\Guestbook;
 
 use \DateTime;
 use \DateTimeZone;

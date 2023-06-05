@@ -1,5 +1,5 @@
 <?php
-namespace Grafikart\Contact;
+namespace App\Contact;
 
 class Message {
     

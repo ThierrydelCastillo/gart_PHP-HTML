@@ -1,10 +1,10 @@
 <?php
 declare(strict_types = 1); // Pour activer la gestion de erreur PHP ligne 12
-require_once 'class/OpenWeather.php';
-$weather = new OpenWeather('ENTRER_APIKEY_ICI'); // Pour obtenir une APIKEY : https://openweathermap.org/api
+require_once 'vendor/autoload.php';
+$weather = new App\OpenWeather('ENTRER_APIKEY_ICI'); // Pour obtenir une APIKEY : https://openweathermap.org/api
 $error = null;
 try {
-    $data = explode(' '); // génère une erreur PHP récupérée par le catch
+    // $data = explode(' '); // génère une erreur PHP récupérée par le catch
     $forecast = $weather->getForecast('Montpellier,fr');
     $today = $weather->getToDay('Montpellier,fr');
 } catch (Exception | Error $e) {
