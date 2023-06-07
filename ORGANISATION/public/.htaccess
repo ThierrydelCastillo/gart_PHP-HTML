@@ -1,0 +1,5 @@
+#Pour qu'il n'y ait pas une erreur 404 si page non existante.
+
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule . index.php [L]

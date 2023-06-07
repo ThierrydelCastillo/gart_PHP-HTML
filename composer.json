@@ -12,7 +12,8 @@
         }
     ],
     "require": {
-        "erusev/parsedown": "^1.7"
+        "erusev/parsedown": "^1.7",
+        "altorouter/altorouter": "^2.0"
     },
     "require-dev": {
         "symfony/var-dumper": "^4.2"

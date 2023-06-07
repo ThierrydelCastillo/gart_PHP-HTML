@@ -1,6 +1,7 @@
 # grafikart_PHP-HTML
 
 Codes de la formation de Grafikart https://grafikart.fr/formations/php
+IMPORTANT : non vérifié en PHP 8.0
 
 
 # Chapitre 27, TP Livre d'or
