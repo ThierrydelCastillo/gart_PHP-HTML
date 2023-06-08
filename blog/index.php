@@ -34,7 +34,6 @@ require '../elements/header.php' ?>
         <div class="alert alert-danger"><?= $error ?></div>
     <?php else: ?>
             <?php foreach($posts as $post): ?>
-            <?php dump($post)?>
                <h2><a href="/blog/edit.php?id=<?= $post->id ?>"><?= htmlentities($post->name) ?></a></h2>
                <p>
                     <?= $post->getBody() ?>
