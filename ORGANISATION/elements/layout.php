@@ -4,9 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $title ?? 'mon site' ?></title>
+    <title><?= $pageTitle ?? 'Mon site' ?></title>
+    <meta name="description" content="<?= $pageDescription ?? '' ?>">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 </head>
 <body>
     
 <div class="container">
+    <?= $pageContent ?>
+</div>
+<?= $pageJavascripts ?? '' ?>
+</body>
+</html>
