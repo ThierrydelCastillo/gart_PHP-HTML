@@ -2,7 +2,7 @@
     "name": "thierry/grafikart_php-html",
     "autoload": {
         "psr-4": {
-            "App\\": "class/"
+            "App\\": "EXOtableauDynamique/src/"
         }
     },
     "authors": [
