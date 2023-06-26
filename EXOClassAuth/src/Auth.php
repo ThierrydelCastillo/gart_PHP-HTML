@@ -2,26 +2,27 @@
 
 namespace App;
 
+use App\Exception\ForbidenException;
 use App\User;
+use phpDocumentor\Reflection\DocBlock\Tags\Throws;
 
 class Auth {
 
     private $pdo;
     private $loginPath;
+    private $session;
 
-    public function __construct(\PDO $pdo, string $loginPath)
+    public function __construct(\PDO $pdo, string $loginPath, array &$session)
     {
         $this->pdo = $pdo;
         $this->loginPath = $loginPath;
+        $this->session = &$session;
     }
 
     public function user(): ?User
     {
-        if(session_status() === PHP_SESSION_NONE){
-            session_start();
-        }
-
-        $id = $_SESSION['auth'] ?? null;
+        
+        $id = $this->session['auth'] ?? null;
         if($id === null){
             return null;
         }
@@ -34,9 +35,13 @@ class Auth {
     public function requireRole(string ...$roles): void
     {
         $user = $this->user();
-        if($user === null || !in_array($user->role, $roles)){
-            header("Location: $this->loginPath?forbid=1");
-            exit();
+        if ($user === null){
+            throw new ForbidenException("Vous devez être connecté pour voir cette page");
+        }
+        if (!in_array($user->role, $roles)) {
+            $roles = implode(',', $roles);
+            $role = $user->role;
+            throw new ForbidenException("Vous n'avez pas le rôle suffisant \"$role\" (attendu : $roles)");
         }
     }
 
@@ -47,14 +52,11 @@ class Auth {
         $query->execute(['username' => $username]);
         // $query->setFetchMode(\PDO::FETCH_CLASS, User::class);
         $user = $query->fetchObject(User::class);
-
+        
         // On vérifie avec password_verifie que le password correspond
         if($user) {
             if(password_verify($password , $user->password)){
-                if(session_status() === PHP_SESSION_NONE){
-                    session_start();
-                }
-                $_SESSION['auth'] = $user->id;
+                $this->session['auth'] = $user->id;
                 return $user;
             }
         }
