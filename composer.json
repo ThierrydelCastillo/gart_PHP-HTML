@@ -2,7 +2,7 @@
     "name": "thierry/grafikart_php-html",
     "autoload": {
         "psr-4": {
-            "App\\": "EXOClassAuth/src/"
+            "App\\": "EXOQueryBuilder/src/"
         }
     },
     "authors": [
